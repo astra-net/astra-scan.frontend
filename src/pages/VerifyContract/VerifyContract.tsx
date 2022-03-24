@@ -6,18 +6,18 @@ import {
   Spinner,
   Text,
   TextArea,
-  TextInput,
+  TextInput
 } from "grommet";
-import React from "react";
-import { BasePage, Button } from "src/components/ui";
-import styled from "styled-components";
-import { IVerifyContractData, verifyContractCode } from "src/api/explorerV1";
 import { SubtractCircle } from "grommet-icons";
-import { breakpoints } from "../../responsive/breakpoints";
+import React from "react";
 import { useMediaQuery } from "react-responsive";
 import { useHistory } from "react-router";
-import { getAddress, getQueryVariable } from "../../utils";
+import { IVerifyContractData, verifyContractCode } from "src/api/explorerV1";
+import { BasePage, Button } from "src/components/ui";
+import styled from "styled-components";
 import { getContractsByField, getTransactionByField } from "../../api/client";
+import { breakpoints } from "../../responsive/breakpoints";
+import { getAddress, getQueryVariable } from "../../utils";
 
 const Field = styled(Box)``;
 
@@ -175,11 +175,11 @@ class VerifyContractBase extends React.Component<
               <Field margin={"small"} width={isLessTablet ? "100%" : "42%"}>
                 <Text>Contract Address</Text>
                 <TextInput
-                  placeholder={"ONE contract address"}
+                  placeholder={"ASTRA contract address"}
                   onChange={(evt: React.ChangeEvent<HTMLInputElement>) => {
                     this.setState({
                       ...this.state,
-                      contractAddress: evt.currentTarget.value,
+                      contractAddress: evt.currentTarget.value.toLowerCase(),
                     });
                   }}
                   value={this.state.contractAddress}
@@ -190,7 +190,7 @@ class VerifyContractBase extends React.Component<
               <Field margin={"small"} width={isLessTablet ? "100%" : "42%"}>
                 <Text>Contract Name</Text>
                 <TextInput
-                  placeholder={"ONE name"}
+                  placeholder={"ASTRA name"}
                   onChange={(evt: React.ChangeEvent<HTMLInputElement>) => {
                     this.setState({
                       ...this.state,

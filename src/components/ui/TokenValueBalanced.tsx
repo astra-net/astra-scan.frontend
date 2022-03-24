@@ -1,17 +1,17 @@
+import Big from "big.js";
 import { Box, Text } from "grommet";
 import React, { useEffect, useState } from "react";
-import Big from "big.js";
-import { formatNumber as _formatNumber } from "src/components/ui/utils";
-
-import { useERC20Pool } from "src/hooks/ERC20_Pool";
-import { useERC721Pool } from "src/hooks/ERC721_Pool";
-import { BinancePairs } from "src/hooks/BinancePairHistoricalPrice";
 import { getBinancePairPrice } from "src/api/client";
 import { IPairPrice } from "src/api/client.interface";
-import { AnchorLink } from "./AnchorLink";
+import { formatNumber as _formatNumber } from "src/components/ui/utils";
+import { BinancePairs } from "src/hooks/BinancePairHistoricalPrice";
 import { useERC1155Pool } from "src/hooks/ERC1155_Pool";
+import { useERC20Pool } from "src/hooks/ERC20_Pool";
+import { useERC721Pool } from "src/hooks/ERC721_Pool";
+import { AnchorLink } from "./AnchorLink";
 
-interface ONEValueProps {
+
+interface ASTRAValueProps {
   value: string | number;
   tokenAddress?: string;
   style?: React.CSSProperties;
@@ -24,7 +24,7 @@ Big.NE = -20;
 Big.PE = 20;
 
 // @ts-ignore
-export const TokenValueBalanced = (props: ONEValueProps) => {
+export const TokenValueBalanced = (props: ASTRAValueProps) => {
   const [dollar, setDollar] = useState<IPairPrice>({} as any);
   const { value, tokenAddress = "", style, formatNumber } = props;
   const erc20Map = useERC20Pool();

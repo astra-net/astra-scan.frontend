@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react'
-import useAPIPolling, { APIPollingOptions } from './polling'
+import { useEffect, useState } from 'react';
 import { singletonHook } from 'react-singleton-hook';
+import useAPIPolling, { APIPollingOptions } from './polling';
 
-const url = 'https://api.binance.com/api/v1/ticker/24hr?symbol=ONEUSDT'
+const url = 'https://api.binance.com/api/v1/ticker/24hr?symbol=ASTRAUSDT'
 const fetchFunc = () => fetch(url).then(r => r.json())
 
-export const useONEExchangeRate = singletonHook({}, () => {
+export const useASTRAExchangeRate = singletonHook({}, () => {
   const [data, setData] = useState<any>({})
 
   const options: APIPollingOptions<any> = {

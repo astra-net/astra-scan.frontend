@@ -1,21 +1,21 @@
-import { useONEExchangeRate } from "../../hooks/useONEExchangeRate";
-import { getNearestPriceForTimestamp } from "src/components/ONE_USDT_Rate";
-import { Text, Box, Tip } from "grommet";
-import { TipContent } from "./Tooltip";
-import React from "react";
 import dayjs from "dayjs";
+import { Box, Text, Tip } from "grommet";
+import React from "react";
+import { getNearestPriceForTimestamp } from "src/components/ASTRA_USDT_Rate";
+import { useASTRAExchangeRate } from "src/hooks/useASTRAExchangeRate";
+import { TipContent } from "./Tooltip";
 import { formatNumber } from "./utils";
 
-interface ONEValueProps {
+interface ASTRAValueProps {
   value: string | number;
   timestamp?: string;
   hideTip?: boolean;
 }
 
 // @ts-ignore
-export const ONEValue = (props: ONEValueProps) => {
+export const ASTRAValue = (props: ASTRAValueProps) => {
   const { value, timestamp = "", hideTip = false } = props;
-  const { lastPrice } = useONEExchangeRate();
+  const { lastPrice } = useASTRAExchangeRate();
 
   if (!value) {
     return null;
@@ -46,7 +46,7 @@ export const ONEValue = (props: ONEValueProps) => {
         size="small"
         margin={{ right: "xxmall" }}
       >
-        {v.toString()} ONE
+        {v.toString()} ASTRA
       </Text>
       {USDValue && +price > 0 && !isTodayTransaction && !hideTip && (
         <Tip

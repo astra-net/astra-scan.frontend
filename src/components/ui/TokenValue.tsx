@@ -1,12 +1,12 @@
+import Big from "big.js";
 import { Text } from "grommet";
 import React from "react";
-import Big from "big.js";
 import { formatNumber as _formatNumber } from "src/components/ui/utils";
-
 import { useERC20Pool } from "src/hooks/ERC20_Pool";
 import { useERC721Pool } from "src/hooks/ERC721_Pool";
 
-interface ONEValueProps {
+
+interface ASTRAValueProps {
   value: string | number;
   tokenAddress?: string;
   style?: React.CSSProperties;
@@ -19,7 +19,7 @@ Big.NE = -20;
 Big.PE = 15;
 
 // @ts-ignore
-export const TokenValue = (props: ONEValueProps) => {
+export const TokenValue = (props: ASTRAValueProps) => {
   const {
     value,
     tokenAddress = "",

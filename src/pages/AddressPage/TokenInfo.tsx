@@ -1,23 +1,18 @@
-import React from "react";
 import { Box, Text, Tip } from "grommet";
-import {
-  Address,
-  formatNumber,
-  TipContent,
-  TokenValue,
-} from "src/components/ui";
+import { Alert } from "grommet-icons";
+import React from "react";
+import { useHistory } from "react-router-dom";
 import { Dropdown } from "src/components/dropdown/Dropdown";
-import { BinancePairs } from "src/hooks/BinancePairHistoricalPrice";
-import Big from "big.js";
+import {
+  Address, TipContent,
+  TokenValue
+} from "src/components/ui";
+import { TokenValueBalanced } from "src/components/ui/TokenValueBalanced";
+import { useCurrency } from "src/hooks/ASTRA-ETH-SwitcherHook";
 import { useERC20Pool } from "src/hooks/ERC20_Pool";
 import { useERC721Pool } from "src/hooks/ERC721_Pool";
-import { TokenValueBalanced } from "src/components/ui/TokenValueBalanced";
 import { useThemeMode } from "src/hooks/themeSwitcherHook";
-import { useCurrency } from "src/hooks/ONE-ETH-SwitcherHook";
-import { getAddress } from "src/utils/getAddress/GetAddress";
-import { useHistory } from "react-router-dom";
 import { useERC1155Pool } from "../../hooks/ERC1155_Pool";
-import { Alert } from "grommet-icons";
 
 interface Token {
   balance: string;
@@ -81,10 +76,7 @@ export function TokensInfo(props: { value: Token[] }) {
           itemHeight={"55px"}
           itemStyles={{ padding: "5px", marginBottom: "10px" }}
           searchable={(item, searchText) => {
-            const outPutAddress =
-              currency === "ONE"
-                ? getAddress(item.tokenAddress).bech32
-                : item.tokenAddress;
+            const outPutAddress = item.tokenAddress;
 
             searchText = searchText.toLowerCase();
 

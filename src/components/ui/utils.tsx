@@ -1,6 +1,6 @@
 import Big from "big.js";
 import React from "react";
-import { useONEExchangeRate } from "src/hooks/useONEExchangeRate";
+import { useASTRAExchangeRate } from "src/hooks/useASTRAExchangeRate";
 
 export function formatNumber(
   num: number,
@@ -30,7 +30,7 @@ Big.NE = -20;
 Big.PE = 15;
 
 export function CalculateFee(transaction: any) {
-  const { lastPrice } = useONEExchangeRate();
+  const { lastPrice } = useASTRAExchangeRate();
 
   const fee = isNaN(transaction.gasPrice)
     ? 0
@@ -58,7 +58,7 @@ export function CalculateFee(transaction: any) {
 
   return (
     <>
-      {normalizedFee} ONE
+      {normalizedFee} ASTRA
       {!USDValue || USDValue === "0.00" || USDValue == "0" ? null : (
         <>($ {USDValue})</>
       )}
@@ -67,7 +67,7 @@ export function CalculateFee(transaction: any) {
 }
 
 export function CalculateTransactionFee(transaction: any) {
-  const { lastPrice } = useONEExchangeRate();
+  const { lastPrice } = useASTRAExchangeRate();
 
   const fee =
     isNaN(transaction.gas) || isNaN(transaction.gasPrice)
@@ -98,7 +98,7 @@ export function CalculateTransactionFee(transaction: any) {
 
   return (
     <>
-      {normalizedFee} ONE
+      {normalizedFee} ASTRA
       {!USDValue || USDValue === "0.00" || USDValue == "0" ? null : (
         <>($ {USDValue})</>
       )}

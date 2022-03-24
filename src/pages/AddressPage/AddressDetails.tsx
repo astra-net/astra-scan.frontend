@@ -1,21 +1,17 @@
-import React, { useEffect, useState } from "react";
 import { Box, Text, Tip } from "grommet";
+import { CircleQuestion } from "grommet-icons";
+import React, { useEffect, useState } from "react";
 import {
-  Address,
-  ExpandString,
-  formatNumber,
-  ONEValue,
-  TipContent,
-  TokenValue,
+    Address, formatNumber, TipContent,
+    TokenValue
 } from "src/components/ui";
-import { AddressDetails } from "src/types";
-import { TokensInfo } from "./TokenInfo";
-import { Erc20, useERC20Pool } from "src/hooks/ERC20_Pool";
-import { ONEValueDropdown } from "src/components/ui/OneValueDropdown";
+import { ASTRAValueDropdown } from "src/components/ui/OneValueDropdown";
 import { binanceAddressMap } from "src/config/BinanceAddressMap";
 import { useERC1155Pool } from "src/hooks/ERC1155_Pool";
-import { CircleQuestion } from "grommet-icons";
+import { Erc20, useERC20Pool } from "src/hooks/ERC20_Pool";
+import { AddressDetails } from "src/types";
 import styled from "styled-components";
+import { TokensInfo } from "./TokenInfo";
 
 export const StyledBox = styled(Box)`
   transition: all 0.2s linear;
@@ -202,7 +198,7 @@ const addressPropertyDisplayValues: Record<
   // bytecode: (value) => <ExpandString value={value || ""} />,
   balance: (value) => (
     <Box width={"550px"}>
-      <ONEValueDropdown value={value} />
+      <ASTRAValueDropdown value={value} />
     </Box>
   ),
   token: (value) => <TokensInfo value={value} />,

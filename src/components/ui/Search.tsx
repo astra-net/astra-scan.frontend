@@ -1,21 +1,20 @@
-import React, { useCallback, useState, useEffect } from "react";
+import { Box, Text, TextInput } from "grommet";
 import { Search } from "grommet-icons";
-import { Box, TextInput, Text } from "grommet";
+import React, { useCallback, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import AutoSizer from "react-virtualized-auto-sizer";
+import { FixedSizeList as List } from "react-window";
 import {
   getBlockByHash,
   getStakingTransactionByField,
-  getTransactionByField,
+  getTransactionByField
 } from "src/api/client";
-import { useThemeMode } from "../../hooks/themeSwitcherHook";
-import { getAddress } from "src/utils";
+import { useERC1155Pool } from "src/hooks/ERC1155_Pool";
 import { useERC20Pool } from "src/hooks/ERC20_Pool";
 import { useERC721Pool } from "src/hooks/ERC721_Pool";
-import { useERC1155Pool } from "src/hooks/ERC1155_Pool";
-
-import { FixedSizeList as List } from "react-window";
-import AutoSizer from "react-virtualized-auto-sizer";
+import { useThemeMode } from "../../hooks/themeSwitcherHook";
 import { Address } from "./Address";
+
 
 let timeoutID: any | null = null;
 
@@ -101,15 +100,6 @@ export const SearchInput = () => {
       if (v.length === 42 && /^0x[a-f0-9]+$/.test(v)) {
         // address
         history.push(`/address/${v}`);
-        setValue("");
-        return;
-      }
-
-      if (v.length === 42 && v.slice(0, 4) === "one1") {
-        // address
-        const ethAddress = getAddress(v).basicHex;
-
-        history.push(`/address/${ethAddress}`);
         setValue("");
         return;
       }

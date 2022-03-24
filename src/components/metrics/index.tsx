@@ -1,27 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { Box, Text, DataChart, Spinner, Tip } from "grommet";
-import { BasePage, TipContent } from "src/components/ui";
-import { formatNumber } from "src/components/ui/utils";
-import { LatencyIcon } from "src/components/ui/icons";
-import dayjs from "dayjs";
-import { Transaction, LineChart, Cubes } from "grommet-icons";
-import styled from "styled-components";
-import { useMediaQuery } from "react-responsive";
-import { breakpoints } from "src/responsive/breakpoints";
-import { useONEExchangeRate } from "../../hooks/useONEExchangeRate";
-import { getTransactionCountLast14Days, getWalletsCountLast14Days } from "src/api/client";
-import { Bar } from 'react-chartjs-2';
-
-import { getCount } from "src/api/client";
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
+  BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, Title,
+  Tooltip
 } from 'chart.js';
+import dayjs from "dayjs";
+import { Box, Spinner, Text, Tip } from "grommet";
+import { Cubes, LineChart, Transaction } from "grommet-icons";
+import React, { useEffect, useState } from "react";
+import { Bar } from 'react-chartjs-2';
+import { useMediaQuery } from "react-responsive";
+import { getCount, getTransactionCountLast14Days, getWalletsCountLast14Days } from "src/api/client";
+import { BasePage, TipContent } from "src/components/ui";
+import { LatencyIcon } from "src/components/ui/icons";
+import { formatNumber } from "src/components/ui/utils";
+import { useASTRAExchangeRate } from "src/hooks/useASTRAExchangeRate";
+import { breakpoints } from "src/responsive/breakpoints";
+import styled from "styled-components";
+
 
 ChartJS.register(
   CategoryScale,
@@ -95,7 +89,7 @@ export const Metrics = (params: {
         }}
         gap={isLessMobileM ? "small" : "0"}
       >
-        <ONEPrice />
+        <ASTRAPrice />
         {!isLessMobileM && <Line horizontal />}
         <TransactionsCount />
       </Box>
@@ -158,8 +152,8 @@ export const Metrics = (params: {
   );
 };
 
-function ONEPrice() {
-  const { lastPrice = 0, priceChangePercent = 0 } = useONEExchangeRate();
+function ASTRAPrice() {
+  const { lastPrice = 0, priceChangePercent = 0 } = useASTRAExchangeRate();
 
   return (
     <Box direction="row" align="stretch">
@@ -172,7 +166,7 @@ function ONEPrice() {
       </Box>
       <Box align="start">
         <Text size="small" color="minorText">
-          {"ONE PRICE"}
+          {"ASTRA PRICE"}
         </Text>
         <Box direction="row" gap="xsmall" align="baseline">
           <Text size="small" weight="bold">

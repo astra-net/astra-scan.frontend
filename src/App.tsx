@@ -1,21 +1,21 @@
-import React, { useEffect } from "react";
-import "./index.css";
 import { Box, Grommet } from "grommet";
+import React, { useEffect } from "react";
 import { BrowserRouter, useHistory } from "react-router-dom";
-
-import { Routes } from "src/Routes";
-import { AppHeader } from "src/components/appHeader";
 import { AppFooter } from "src/components/appFooter";
-
-import { SearchInput, BaseContainer } from "src/components/ui";
-import { ONE_USDT_Rate } from "src/components/ONE_USDT_Rate";
+import { AppHeader } from "src/components/appHeader";
+import { ERC1155_Pool } from "src/components/ERC1155_Pool";
 import { ERC20_Pool } from "src/components/ERC20_Pool";
 import { ERC721_Pool } from "src/components/ERC721_Pool";
-import { ERC1155_Pool } from "src/components/ERC1155_Pool";
+import { BaseContainer, SearchInput } from "src/components/ui";
 import { useThemeMode } from "src/hooks/themeSwitcherHook";
-import { theme, darkTheme } from "./theme";
+import { Routes } from "src/Routes";
 import { Toaster, ToasterComponent } from "./components/ui/toaster";
+import { ASTRA_USDT_Rate } from "./components/ASTRA_USDT_Rate";
+import "./index.css";
+import { darkTheme, theme } from "./theme";
 import { SettingsService } from "./utils/settingsService/SettingsService";
+
+
 
 export const toaster = new Toaster();
 export const settingsService = new SettingsService();
@@ -80,7 +80,7 @@ function AppWithHistory() {
           </BaseContainer>
         </Box>
         <AppFooter style={{ flex: "0 0 auto" }} />
-        <ONE_USDT_Rate />
+        <ASTRA_USDT_Rate />
       </Box>
     </Grommet>
   );

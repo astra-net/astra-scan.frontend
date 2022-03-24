@@ -1,7 +1,7 @@
 import { Box } from "grommet";
-import { useCurrency, setCurrency, getStoredValue, currencyType } from "../../hooks/ONE-ETH-SwitcherHook";
-import styled from "styled-components";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
+import { currencyType, getStoredValue, setCurrency, useCurrency } from "../../hooks/ASTRA-ETH-SwitcherHook";
 
 const SwitchButton = styled.div<{ selected: boolean }>`
   padding: 4px 10px;
@@ -44,7 +44,7 @@ export const AddressFormatSwitch = () => {
     setFormat(currency)
   }, [currency])
 
-  const options: currencyType[] = ['ONE', 'ETH']
+  const options: currencyType[] = ['ASTRA', 'ETH']
 
   return <SwitchContainer direction="row">
     <OptionBackground selectedIndex={options.indexOf(addressFormat)} />

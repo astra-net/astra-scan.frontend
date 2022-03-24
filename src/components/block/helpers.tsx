@@ -1,25 +1,18 @@
-import {
-  Address,
-  Timestamp,
-  BlockHash,
-  BlockNumber,
-  TransactionHash,
-  formatNumber,
-} from "src/components/ui";
-import {
-  Clone,
-  FormPreviousLink,
-  FormNextLink,
-  StatusGood,
-} from "grommet-icons";
-import { Link } from "react-router-dom";
-
-import React from "react";
-import { Block } from "src/types";
-import { CopyBtn } from "../ui/CopyBtn";
-import { toaster } from "src/App";
 import { Box, Text } from "grommet";
+import {
+  FormNextLink, FormPreviousLink, StatusGood
+} from "grommet-icons";
+import React from "react";
+import { Link } from "react-router-dom";
+import { toaster } from "src/App";
+import {
+  Address, BlockHash,
+  BlockNumber, formatNumber, Timestamp, TransactionHash
+} from "src/components/ui";
+import { Block } from "src/types";
 import styled from "styled-components";
+import { CopyBtn } from "../ui/CopyBtn";
+
 
 export const StyledBox = styled(Box)`
   transition: all 0.2s linear;
@@ -81,7 +74,7 @@ export const blockPropertyDescriptions: Record<string, string> = {
   size: "The block size is actually determined by the block's gas limit.",
   stateRoot: "The root of the state trie",
   transactions:
-    "The number of transactions in the block. Internal transaction is transactions as a result of contract execution that involves ONE value.",
+    "The number of transactions in the block. Internal transaction is transactions as a result of contract execution that involves ASTRA value.",
   stakingTransactions: "The number of staking transactions in the block.",
   transactionsRoot: "Transactions Root",
   uncles: "Uncles",

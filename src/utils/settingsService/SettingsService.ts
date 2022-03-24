@@ -5,7 +5,7 @@ export class SettingsService {
   constructor(postfix?: string, settingsField?: string) {
     this.postfix = postfix;
     this.settingsField =
-      settingsField === void 0 ? "ONE_SETTINGS_" : settingsField;
+      settingsField === void 0 ? "ASTRA_SETTINGS_" : settingsField;
   }
   // tslint:disable-next-line:no-any
   get<T = any>(

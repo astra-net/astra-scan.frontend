@@ -1,16 +1,15 @@
-import React, { CSSProperties } from "react";
 import { Box, Text } from "grommet";
-import { Link, useHistory } from "react-router-dom";
-import { useERC20Pool } from "src/hooks/ERC20_Pool";
-import { getAddress } from "src/utils";
-import { useCurrency } from "src/hooks/ONE-ETH-SwitcherHook";
-import { useERC721Pool } from "src/hooks/ERC721_Pool";
-import { binanceAddressMap } from "src/config/BinanceAddressMap";
-import { useERC1155Pool } from "src/hooks/ERC1155_Pool";
-import { CopyBtn } from "./CopyBtn";
-import { toaster } from "src/App";
-import styled from "styled-components";
 import { StatusGood } from "grommet-icons";
+import React, { CSSProperties } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { toaster } from "src/App";
+import { binanceAddressMap } from "src/config/BinanceAddressMap";
+import { useCurrency } from "src/hooks/ASTRA-ETH-SwitcherHook";
+import { useERC1155Pool } from "src/hooks/ERC1155_Pool";
+import { useERC20Pool } from "src/hooks/ERC20_Pool";
+import { useERC721Pool } from "src/hooks/ERC721_Pool";
+import styled from "styled-components";
+import { CopyBtn } from "./CopyBtn";
 
 const Icon = styled(StatusGood)`
   margin-right: 5px;
@@ -81,11 +80,6 @@ export const Address = (props: IAddress) => {
   parsedName = address === EMPTY_ADDRESS ? "0x0" : parsedName;
 
   let outPutAddress = address;
-  try {
-    outPutAddress = currency === "ONE" ? getAddress(address).bech32 : address;
-  } catch {
-    outPutAddress = address;
-  }
 
   return (
     <div style={{ display: "inline-block" }}>

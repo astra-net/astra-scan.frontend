@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
 import { Box, Heading, Select, Spinner, Text, TextArea, TextInput, Tip } from "grommet";
 import { Alert, StatusGood } from "grommet-icons";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import ERC1155ABI from 'src/web3/abi/ERC1155ABI.json';
+import ERC20ABI from 'src/web3/abi/ERC20ABI.json';
+import ERC721ABI from 'src/web3/abi/ERC721ABI.json';
+import { ABIManager, IABI } from "src/web3/ABIManager";
+import styled from "styled-components";
+import { getContractsByField } from "../../../api/client";
+import { toaster } from "../../../App";
 import { BaseContainer, BasePage } from "../../../components/ui";
 import useQuery from "../../../hooks/useQuery";
-import { getContractsByField } from "../../../api/client";
-import styled from "styled-components";
 import { AddressDetails } from "../../../types";
-import { ABIManager, IABI } from "src/web3/ABIManager";
-import ERC20ABI from 'src/web3/abi/ERC20ABI.json'
-import ERC721ABI from 'src/web3/abi/ERC721ABI.json'
-import ERC1155ABI from 'src/web3/abi/ERC1155ABI.json'
 import { copyTextToClipboard } from "../../../utils";
-import { toaster } from "../../../App";
-import { useHistory } from "react-router-dom";
 
 const StyledTextArea = styled(TextArea)`
   padding: 0.75rem;
@@ -202,9 +202,9 @@ export function CheckHRC() {
               <Box direction="row">
                 <Box width={'550px'}>
                   <TextInput
-                    placeholder={"ONE contract address"}
+                    placeholder={"ASTRA contract address"}
                     onChange={(evt: React.ChangeEvent<HTMLInputElement>) => {
-                      setContractAddress(evt.currentTarget.value)
+                      setContractAddress(evt.currentTarget.value.toLowerCase())
                     }}
                     value={contractAddress}
                     disabled={false}

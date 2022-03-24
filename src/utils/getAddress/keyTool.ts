@@ -1,8 +1,6 @@
-import { fromBech32 } from "./bech32";
-import * as bytes from './bytes'
+import * as bytes from './bytes';
 import * as errors from "./errors";
 import { keccak256 } from "./keccak256";
-import { isBech32Address } from "./validators";
 
 /**
  * @function toChecksumAddress
@@ -10,9 +8,6 @@ import { isBech32Address } from "./validators";
  * @return {string} checksumed address
  */
 export const toChecksumAddress = (address: string): string => {
-  if (typeof address === "string" && isBech32Address(address)) {
-    address = fromBech32(address);
-  }
   if (typeof address !== "string" || !address.match(/^0x[0-9A-Fa-f]{40}$/)) {
     errors.throwError("invalid address", errors.INVALID_ARGUMENT, {
       arg: "address",

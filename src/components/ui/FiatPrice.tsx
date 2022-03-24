@@ -1,9 +1,9 @@
-import React from "react";
 import { Text } from "grommet";
-import { useONEExchangeRate } from "src/hooks/useONEExchangeRate";
+import React from "react";
+import { useASTRAExchangeRate } from "src/hooks/useASTRAExchangeRate";
 
 export const FiatPrice = () => {
-  const { lastPrice, priceChangePercent } = useONEExchangeRate();
+  const { lastPrice, priceChangePercent } = useASTRAExchangeRate();
 
   if (!lastPrice) {
     return <Text size="xsmall">&nbsp;</Text>;
@@ -19,7 +19,7 @@ export const FiatPrice = () => {
 
   return (
     <>
-      <Text size="xsmall">ONE:&nbsp;${price}&nbsp;</Text>
+      <Text size="xsmall">ASTRA:&nbsp;${price}&nbsp;</Text>
       <Text size="xsmall" color={isPositive ? "#69FABD" : "status-error"}>
         ({isPositive && "+"}
         {change}%)

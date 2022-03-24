@@ -1,29 +1,29 @@
-import {useONEExchangeRate} from "../../hooks/useONEExchangeRate";
-import {getNearestPriceForTimestamp} from "src/components/ONE_USDT_Rate";
-import {Text, Box} from "grommet";
-import React from "react";
 import dayjs from "dayjs";
-import {Dropdown} from "../dropdown/Dropdown";
-import {useThemeMode} from "src/hooks/themeSwitcherHook";
-import {CopyBtn} from "./CopyBtn"
-import {toaster} from "../../App"
-import {StatusGood} from "grommet-icons";
-import styled from "styled-components"
+import { Box, Text } from "grommet";
+import { StatusGood } from "grommet-icons";
+import React from "react";
+import { getNearestPriceForTimestamp } from "src/components/ASTRA_USDT_Rate";
+import { useThemeMode } from "src/hooks/themeSwitcherHook";
+import { useASTRAExchangeRate } from "src/hooks/useASTRAExchangeRate";
+import styled from "styled-components";
+import { toaster } from "../../App";
+import { Dropdown } from "../dropdown/Dropdown";
+import { CopyBtn } from "./CopyBtn";
 
 const Icon = styled(StatusGood)`
   margin-right: 5px;
 `;
 
-interface ONEValueProps {
+interface ASTRAValueProps {
     value: (string | number)[];
     timestamp?: string;
     hideTip?: boolean;
 }
 
 // @ts-ignore
-export const ONEValueDropdown = (props: ONEValueProps) => {
+export const ASTRAValueDropdown = (props: ASTRAValueProps) => {
     const {value, timestamp = "", hideTip = false} = props;
-    const {lastPrice} = useONEExchangeRate();
+    const {lastPrice} = useASTRAExchangeRate();
     const themeMode = useThemeMode();
 
     if (!value.length) {
@@ -97,7 +97,7 @@ export const ONEValueDropdown = (props: ONEValueProps) => {
                                 prev += cur.one;
                                 return prev;
                             }, 0)}{" "}
-                            ONE
+                            ASTRA
                         </b>
                     </Text>
                     <Text size={"small"} style={{paddingLeft: "4px"}}>
@@ -122,7 +122,7 @@ export const ONEValueDropdown = (props: ONEValueProps) => {
                         Shard {item.index}:{" "}
                     </Text>
                     <Text size={"small"} style={{paddingLeft: "4px"}}>
-                        <b>{item.one} ONE </b>
+                        <b>{item.one} ASTRA </b>
                     </Text>
                     {item.usd ? (
                         <Text size={"small"} style={{paddingLeft: "4px"}}>

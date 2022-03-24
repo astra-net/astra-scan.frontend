@@ -1,15 +1,13 @@
-import React, { useState } from "react";
 import { Box, Text } from "grommet";
-
+import React, { useState } from "react";
 import { TransactionsTable } from "src/components/tables/TransactionsTable";
-import { Filter, InternalTransaction } from "src/types";
 import {
-  Address,
-  ONEValue,
-  PaginationNavigator,
-  TransactionType,
+  Address, TransactionType
 } from "src/components/ui";
+import { Filter, InternalTransaction } from "src/types";
 import { DisplaySignatureMethod } from "src/web3/parseByteCode";
+import { ASTRAValue } from '../ui/ASTRAValue';
+
 
 interface InternalTransactionListProps {
   list: InternalTransaction[];
@@ -139,12 +137,12 @@ function getColumns(props?: any) {
       property: "value",
       header: (
         <Text color="minorText" size="small" style={{ fontWeight: 300 }}>
-          ONEValue
+          ASTRAValue
         </Text>
       ),
       render: (data: InternalTransaction) => (
         <Box justify="center" align="end">
-          <ONEValue value={data.value} timestamp={timestamp} />
+          <ASTRAValue value={data.value} timestamp={timestamp} />
         </Box>
       ),
     },
