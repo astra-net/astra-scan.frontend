@@ -25,7 +25,7 @@ export const ERC20List = () => {
   const erc20 = useERC20Pool();
   const themeMode = useThemeMode();
   const erc20Tokens = Object.values(erc20);
-  const searchableFields = ["name", "symbol", "address"] as Array<keyof Erc20>
+  const searchableFields = ["name", "symbol", "address"] as Array<keyof Erc20>;
 
   const searchedTokenLength = erc20Tokens.filter(
     filterWithFields(searchableFields, search)
@@ -79,7 +79,7 @@ export const ERC20List = () => {
   return (
     <>
       <Heading size="xsmall" margin={{ top: "0" }}>
-        HRC20 Tokens
+        ARC20 Tokens
       </Heading>
       <BasePage>
         <Box width="100%" pad={{ bottom: "medium" }}>

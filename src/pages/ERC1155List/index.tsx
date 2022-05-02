@@ -25,7 +25,9 @@ export const ERC1155List = () => {
   const erc1155 = useERC1155Pool();
   const themeMode = useThemeMode();
   const erc1155Tokens = Object.values(erc1155);
-  const searchableFields = ["name", "symbol", "address"] as Array<keyof ERC1155>
+  const searchableFields = ["name", "symbol", "address"] as Array<
+    keyof ERC1155
+  >;
 
   const searchedTokenLength = erc1155Tokens.filter(
     filterWithFields(searchableFields, search)
@@ -78,7 +80,7 @@ export const ERC1155List = () => {
   return (
     <>
       <Heading size="xsmall" margin={{ top: "0" }}>
-        HRC1155 Tokens
+        ARC1155 Tokens
       </Heading>
       <BasePage>
         <Box width="100%" pad={{ bottom: "medium" }}>

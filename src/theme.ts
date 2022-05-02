@@ -4,9 +4,9 @@ export const palette = {
   CoolGray: "#758796",
   Purple: "#00AEE9",
   ElectricBlue: "#00AEE9",
-  ElectricBlueLight: "#e8f3ff",
-  MintGreen: "#69FABD",
-  MidnightBlue: "#1B295E",
+  ElectricBlueLight: "#83addc",
+  MintGreen: "#22b477",
+  MidnightBlue: "#660099",
 };
 
 export const theme = {
@@ -19,7 +19,7 @@ export const theme = {
 
     colors: {
       text: '#55626d',
-      brand: palette.Purple,
+      brand: palette.MintGreen,
       background: "white",
       backgroundBack: "#f3f3f3",
       backgroundEmptyIcon: "#e8e6e6",

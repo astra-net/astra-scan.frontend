@@ -24,7 +24,7 @@ export function ToolsButton() {
         setIsOpen(false);
       }}
       open={isOpen}
-      dropProps={{ round: '4px' }}
+      dropProps={{ round: "4px" }}
       dropAlign={{ top: "bottom", right: "right" }}
       dropContent={
         <Box
@@ -41,7 +41,7 @@ export function ToolsButton() {
               history.push("/tools/approvals");
             }}
           >
-            Token Approvals 
+            Token Approvals
           </Anchor>
           <Anchor
             style={{ textDecoration: "underline" }}
@@ -50,14 +50,14 @@ export function ToolsButton() {
               history.push("/tools/checkHrc");
             }}
           >
-            Check HRC
+            Check ARC
           </Anchor>
         </Box>
       }
       style={{
         border: "none",
         boxShadow: "none",
-        paddingRight: "6px"
+        paddingRight: "6px",
       }}
     />
   );

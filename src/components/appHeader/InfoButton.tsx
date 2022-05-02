@@ -24,7 +24,7 @@ export function InfoButton() {
         setIsOpen(false);
       }}
       open={isOpen}
-      dropProps={{ round: '4px' }}
+      dropProps={{ round: "4px" }}
       dropAlign={{ top: "bottom", right: "right" }}
       dropContent={
         <Box
@@ -38,35 +38,35 @@ export function InfoButton() {
             style={{ textDecoration: "underline" }}
             onClick={(e) => {
               setIsOpen(false);
-              history.push("/hrc20");
+              history.push("/arc20");
             }}
           >
-            HRC20 tokens
+            ARC20 tokens
           </Anchor>
           <Anchor
             style={{ textDecoration: "underline" }}
             onClick={(e) => {
               setIsOpen(false);
-              history.push("/hrc721");
+              history.push("/arc721");
             }}
           >
-            HRC721 tokens
+            ARC721 tokens
           </Anchor>
           <Anchor
             style={{ textDecoration: "underline" }}
             onClick={(e) => {
               setIsOpen(false);
-              history.push("/hrc1155");
+              history.push("/arc1155");
             }}
           >
-            HRC1155 tokens
+            ARC1155 tokens
           </Anchor>
         </Box>
       }
       style={{
         border: "none",
         boxShadow: "none",
-        paddingRight: "6px"
+        paddingRight: "6px",
       }}
     />
   );

@@ -25,7 +25,7 @@ export const ERC721List = () => {
   const erc721 = useERC721Pool();
   const themeMode = useThemeMode();
   const erc721Tokens = Object.values(erc721);
-  const searchableFields = ["name", "symbol", "address"] as Array<keyof ERC721>
+  const searchableFields = ["name", "symbol", "address"] as Array<keyof ERC721>;
 
   const searchedTokenLength = erc721Tokens.filter(
     filterWithFields(searchableFields, search)
@@ -78,7 +78,7 @@ export const ERC721List = () => {
   return (
     <>
       <Heading size="xsmall" margin={{ top: "0" }}>
-        HRC721 Tokens
+        ARC721 Tokens
       </Heading>
       <BasePage>
         <Box width="100%" pad={{ bottom: "medium" }}>

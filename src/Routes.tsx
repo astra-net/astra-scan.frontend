@@ -14,7 +14,7 @@ import { ERC1155List } from "./pages/ERC1155List";
 import { ExportData } from "./pages/ExportData";
 import { InventoryDetailsPage } from "./pages/InventoryDetailsPage/InventoryDetailsPage";
 import { ApprovalPage } from "./pages/ApprovalPage";
-import { CheckHRC } from "./pages/tools/CheckHRC";
+import { CheckARC } from "./pages/tools/CheckARC";
 
 export function Routes() {
   return (
@@ -51,7 +51,7 @@ export function Routes() {
         </Route>
 
         <Route exact path="/tools/checkHrc">
-          <CheckHRC />
+          <CheckARC />
         </Route>
 
         <Route path="/tx/:id">
@@ -78,15 +78,15 @@ export function Routes() {
           <ERC721List />
         </Route>
 
-        <Route path="/hrc20">
+        <Route path="/arc20">
           <ERC20List />
         </Route>
 
-        <Route path="/hrc721">
+        <Route path="/arc721">
           <ERC721List />
         </Route>
 
-        <Route path="/hrc1155">
+        <Route path="/arc1155">
           <ERC1155List />
         </Route>
 

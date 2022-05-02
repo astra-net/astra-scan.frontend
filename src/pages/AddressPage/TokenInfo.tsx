@@ -3,10 +3,7 @@ import { Alert } from "grommet-icons";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Dropdown } from "src/components/dropdown/Dropdown";
-import {
-  Address, TipContent,
-  TokenValue
-} from "src/components/ui";
+import { Address, TipContent, TokenValue } from "src/components/ui";
 import { TokenValueBalanced } from "src/components/ui/TokenValueBalanced";
 import { useCurrency } from "src/hooks/ASTRA-ETH-SwitcherHook";
 import { useERC20Pool } from "src/hooks/ERC20_Pool";
@@ -159,7 +156,7 @@ export function TokensInfo(props: { value: Token[] }) {
             <Box direction={"row"} style={{ paddingTop: "3px" }}>
               {erc20Tokens.length ? (
                 <Box style={{ marginRight: "10px" }} direction={"row"}>
-                  HRC20{" "}
+                  ARC20{" "}
                   <Box
                     background={"backgroundBack"}
                     style={{
@@ -176,7 +173,7 @@ export function TokensInfo(props: { value: Token[] }) {
               ) : null}
               {erc721Tokens.length ? (
                 <Box direction={"row"}>
-                  HRC721{" "}
+                  ARC721{" "}
                   <Box
                     background={"backgroundBack"}
                     style={{
@@ -193,7 +190,7 @@ export function TokensInfo(props: { value: Token[] }) {
               ) : null}
               {erc1155Tokens.length ? (
                 <Box direction={"row"}>
-                  HRC1155{" "}
+                  ARC1155{" "}
                   <Box
                     background={"backgroundBack"}
                     style={{
@@ -224,7 +221,7 @@ export function TokensInfo(props: { value: Token[] }) {
                   pad={"xsmall"}
                   background={"backgroundBack"}
                 >
-                  <Text>HRC20 tokens</Text>
+                  <Text>ARC20 tokens</Text>
                 </Box>
               ),
             },
@@ -241,7 +238,7 @@ export function TokensInfo(props: { value: Token[] }) {
                   pad={"xsmall"}
                   background={"backgroundBack"}
                 >
-                  <Text>HRC721 tokens</Text>
+                  <Text>ARC721 tokens</Text>
                 </Box>
               ),
             },
@@ -258,7 +255,7 @@ export function TokensInfo(props: { value: Token[] }) {
                   pad={"xsmall"}
                   background={"backgroundBack"}
                 >
-                  <Text>HRC1155 tokens</Text>
+                  <Text>ARC1155 tokens</Text>
                 </Box>
               ),
             },

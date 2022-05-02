@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import {
   Erc20Price,
-    setBinancePairHistoricalPrice,
+  setBinancePairHistoricalPrice,
   useBinancePairHistoricalPrice,
 } from "src/hooks/BinancePairHistoricalPrice";
 
@@ -11,7 +11,7 @@ export function BinancePairHistoricalPrice_Pool() {
       const erc20: Erc20Price[] = useBinancePairHistoricalPrice();
       const erc20MapPrice = {} as Record<string, Erc20Price>;
       erc20.forEach((i) => {
-        erc20MapPrice[i.hrc20Address] = i;
+        erc20MapPrice[i.arc20Address] = i;
       });
 
       window.localStorage.setItem(

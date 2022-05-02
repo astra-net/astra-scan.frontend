@@ -10,7 +10,6 @@ import { useERC20Pool } from "src/hooks/ERC20_Pool";
 import { useERC721Pool } from "src/hooks/ERC721_Pool";
 import { AnchorLink } from "./AnchorLink";
 
-
 interface ASTRAValueProps {
   value: string | number;
   tokenAddress?: string;
@@ -33,7 +32,7 @@ export const TokenValueBalanced = (props: ASTRAValueProps) => {
   const { direction = "column" } = props;
 
   let pairSymbol = BinancePairs.find(
-    (item) => item.hrc20Address === tokenAddress
+    (item) => item.arc20Address === tokenAddress
   );
 
   useEffect(() => {
@@ -81,7 +80,7 @@ export const TokenValueBalanced = (props: ASTRAValueProps) => {
           <Box direction={direction}>
             <Text size={"small"}>
               {`${v}`}
-              <AnchorLink to={"/hrc20"} label={`${tokenInfo.symbol}`} />
+              <AnchorLink to={"/arc20"} label={`${tokenInfo.symbol}`} />
             </Text>
             <Text size={"small"} style={{ paddingLeft: "0.3em" }}>
               {`($${dollarPrice.toFixed(2).toString()})`}
